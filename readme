@@ -1,0 +1,97 @@
+AICer is an IDL program for compounding astronomical images.
+
+This is a test program of IDL widget interface.
+Requires IDL version 6.0 or greater.
+Requires David Fanning's rd_tfile.pro routine (http://www.dfanning.com/), this could be found in "Supplementary" package.
+Requires the GSFC IDL astronomy user's library routines (The IDL Astronomy User's Library) and Coyote procedures needed for the Astronomy library downloaded on the same page.
+Some features may not work under all operating systems.
+Initially, this program is designed to overlay contour map and star catalogue on a fits image. Now some new features have been added to it.
+
+Update
+
+0.2.17
+  Multi-panel plot, draw several plots on one page
+  New format for save files, use "save" and "restore" command
+  Point layer: add "Histogram" in the symbol type. This option could be used to plot spectra.
+  Shape layer: the shapes are drawn with noclip option. Shapes could be plotted out of the plot range.
+  Correct a coordiante bug while using "Ordernary plot".
+
+0.2.16
+  Image layer: fix a bug when using new astron lib (verson after Jul,2013)
+  Optimize the plot range for ordinary plot
+
+0.2.15
+  Numbers for color bar in "Image layer" and contour label in "Contour layer" have the same font as the axis numbers
+  Shape layer: aicer can draw filled shapes. Coyote procedures needed for the Astronomy library are required.
+  Point layer: correct the saving problem of flag column
+
+0.2.14
+  A coordinate system type should be set before plot. AICer now can plot ordinary maps (eg. PV map) under the coordinate system type "Ordinary plot"
+  Image layer: the convert module has been removed, all the image will be converted automatically.
+
+0.2.13
+  Point layer: add flag option to plot some specific lines.
+  correct the plot for coordinate below 0 or over 180 degree.
+  Color table update: add color table for velocity plot.
+
+0.2.12
+  Image layer: Correct image scale option.
+  Image layer: accept fits file with epoch B1950.
+  aicer now can adjust the plot position according to the tickname length, and color bar.
+  A larger color table
+  The new large color table "user.tbl" can be used by AICer. Put the table file at where you would like to start aicer. The "User" button in "Image" or "Contour" layer can open this file and gives you total 105 color tables.
+
+0.2.11
+  Correct the error while reading a coordinate starting with '-00'.
+  Adjust the position of some widgets.
+  The user color table now accept LUT table given by ds9 or GILDAS.
+
+0.2.10
+  Image layer: correct the mistake while plotting a fits image created by GILDAS.
+  Rename the main file with "aicer.pro" so that it can be automatically compiled in all operation system.
+
+0.2.9
+  Point layer: plenty of modifications have been done.
+  Add the new type "Vector" to draw bars or arrows, the original types have been classified into subtypes. The "Point" type has 3 subtypes and draw symbols as usual. The new "Vector" type draw bars and arrows according to the magnitude and angle provided in the input file.
+  Fix an error when drawing with symbol "line", now the line will be cut off where a blank line appears in the input file. By using this, AICer can draw contour lines exported from other software (e.g., DS9).
+  NOTE: since the "polarization" type has been classified to be a subtype of "Vector", users who use this subtype before have to reselect their type in their polarization layer.
+
+0.2.8
+  Point layer: polarization angle are in degree unit and orient from North to East
+  "draw source name" now do not draw names out side the plot range.
+  Flexible input for tick format is used, which accepts any format. Now users can define the length and accuracy of every number in ticknames，change the symbols between numbers and even omit some digits.
+
+0.2.7
+  Now minus line thick represent dashed linestyle for Contour/Shape layer.
+  More format can be accepted for coordinate input(eg. 00h00m,00:00:00,00_00_00,etc).
+  Image layer: more efficient compound widget is used.
+  Contour layer: rewrite the code for drawing irregular mapping contour to make it faster.
+  Point layer: new type -- draw the vector of polarization
+  More efficient compound widget is used.
+
+0.2.6
+  Image layer: fix a critical error in drawing RGB images.
+  Note: this error may cause unexpected NaN values appearing in some part of the images.
+  Setting: paper size is editable now, format as A4,B5,5*5,10*30,etc are accepted.
+
+0.2.5
+  Complete the HELP in each window, thought faults in grammar may exist.
+  Image layer: now can specify a color for the NaN values in the fits file.
+
+0.2.4
+  Shape layer: ellipse and box can be plotted with correct size and angle at different DEC.
+  NOTE: in this version, the size of ellipse has been changed from radius to diameter.
+
+0.2.3
+  Image layer: nan pixals can be draw as the maximum/minmum color of the fits file
+  Text layer: can use WCS as the position to draw text
+
+0.2.2
+  New layer - shape layer: can draw shapes on the plot(beamsize, arrow, etc)
+  Image layer: colorbar can be drawn
+
+0.2.1
+  Contour layer: fix a widget display error in point part of CONTOUR widget
+  Image layer: add scale choice to Pixal Distribution module for IMAGE widget, similar to DS9. A new function to calculate the ZScale value of a image were added, based on the algorithm in IRAF
+  Misc: when there is a program error, display the possible problem
+
