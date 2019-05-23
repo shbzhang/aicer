@@ -4602,7 +4602,7 @@ PRO AICer_main, layerlist, singlepanel=singlepanel, pageoffset=pageoffset, pages
             DECformat[0] = strjoin(strsplit(DECformat[0], '+', /EXTRACT))
             degree = sign+string(degree, FORMAT = DECformat[0])+DECformat[1]
             arcmin = string(arcmin, FORMAT = DECformat[2])+DECformat[3]
-            IF strpos(strlowcase(DECformat[2]), 'i') GE 0 THEN arcsec = round(arcsec)
+            IF strpos(strlowcase(DECformat[4]), 'i') GE 0 THEN arcsec = round(arcsec)
             arcsec = string(arcsec, FORMAT = DECformat[4])+DECformat[5]
             axisDECtickname = replicate('', n_elements(degree))
             skip_dg = n_elements(uniq(degree)) EQ 1
